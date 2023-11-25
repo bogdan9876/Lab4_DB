@@ -1,4 +1,4 @@
-from app.app import db
+from app import db
 
 
 class Room(db.Model):

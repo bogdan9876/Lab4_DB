@@ -5,7 +5,7 @@ from typing import List
 from sqlalchemy import inspect
 from sqlalchemy.orm import Mapper
 
-from ..app import db
+from app import db
 
 
 class GeneralDAO(ABC):
