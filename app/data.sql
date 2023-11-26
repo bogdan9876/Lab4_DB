@@ -1,4 +1,4 @@
-INSERT INTO HotelChain (name, location, established_year, owner_name, number_of_hotels) VALUES
+INSERT INTO Hotel_Chain (name, location, established_year, owner_name, number_of_hotels) VALUES
 ('Marriott', 'New York, USA', 1927, 'Marriott Family', 7000),
 ('Hilton', 'Los Angeles, USA', 1919, 'Conrad Hilton', 6100),
 ('Hyatt', 'Chicago, USA', 1957, 'Jay Pritzker', 950),
@@ -10,19 +10,19 @@ INSERT INTO HotelChain (name, location, established_year, owner_name, number_of_
 ('Mandarin Oriental', 'Hong Kong', 1963, 'J. N. Lo', 33),
 ('The Ritz-Carlton', 'Boston, USA', 1983, 'William B. Johnson', 115);
 
-INSERT INTO Hotel (name, address, contact_info, rating, city, country, HotelChain_id) VALUES
-('Marriott Marquis', 'Broadway, New York, USA', '1234567890', 4.5, 'New York', 'USA', 1),
-('Hilton Times Square', '42nd St, New York, USA', '0987654321', 4.3, 'New York', 'USA', 2),
-('Hyatt Regency', 'Wacker Dr, Chicago, USA', '1122334455', 4.2, 'Chicago', 'USA', 3),
-('InterContinental London', 'Park Lane, London, UK', '2233445566', 4.6, 'London', 'UK', 4),
-('Radisson Blu Aqua Hotel', 'Columbus Dr, Chicago, USA', '3344556677', 4.1, 'Chicago', 'USA', 5),
-('Accor Sydney', 'George St, Sydney, Australia', '4455667788', 4.4, 'Sydney', 'Australia', 6),
-('Four Seasons Hotel Sydney', 'George St, Sydney, Australia', '5566778899', 4.7, 'Sydney', 'Australia', 7),
-('Shangri-La Hotel Paris', 'Avenue Iéna, Paris, France', '6677889900', 4.8, 'Paris', 'France', 8),
-('Mandarin Oriental Barcelona', 'Passeig de Gràcia, Barcelona, Spain', '7788990011', 4.9, 'Barcelona', 'Spain', 9),
-('The Ritz-Carlton Berlin', 'Potsdamer Platz, Berlin, Germany', '8899001122', 4.0, 'Berlin', 'Germany', 10);
+INSERT INTO Hotel (name, address, contact_info, rating, HotelChain_id) VALUES
+('Marriott Marquis', 'Broadway, New York, USA', '1234567890', 4.5, 1),
+('Hilton Times Square', '42nd St, New York, USA', '0987654321', 4.3, 2),
+('Hyatt Regency', 'Wacker Dr, Chicago, USA', '1122334455', 4.2, 3),
+('InterContinental London', 'Park Lane, London, UK', '2233445566', 4.6, 4),
+('Radisson Blu Aqua Hotel', 'Columbus Dr, Chicago, USA', '3344556677', 4.1, 5),
+('Accor Sydney', 'George St, Sydney, Australia', '4455667788', 4.4, 6),
+('Four Seasons Hotel Sydney', 'George St, Sydney, Australia', '5566778899', 4.7, 7),
+('Shangri-La Hotel Paris', 'Avenue Iéna, Paris, France', '6677889900', 4.8, 8),
+('Mandarin Oriental Barcelona', 'Passeig de Gràcia, Barcelona, Spain', '7788990011', 4.9, 9),
+('The Ritz-Carlton Berlin', 'Potsdamer Platz, Berlin, Germany', '8899001122', 4.0, 10);
 
-INSERT INTO HotelLocation (country, city, street, postal_code, Hotel_id) VALUES
+INSERT INTO Hotel_Location (country, city, street, postal_code, Hotel_id) VALUES
 ('USA', 'New York', 'Broadway', '10019', 1),
 ('USA', 'New York', '42nd St', '10036', 2),
 ('USA', 'Chicago', 'Wacker Dr', '60601', 3),
@@ -70,7 +70,7 @@ INSERT INTO Room (room_type, price_per_night, room_size, bed_type, Hotel_id) VAL
 ('Studio', 210.00, 325.00, 'King', 9),
 ('Double Room', 160.00, 300.00, 'Double', 10);
 
-INSERT INTO Availability (booking_start_date, booking_start_end, guest_count, is_weekend, Room_id) VALUES
+INSERT INTO Availability (booking_start_date, booking_end_date, guest_count, is_weekend, Room_id) VALUES
 ('2023-11-01', '2023-11-30', 2, true, 1),
 ('2023-12-01', '2023-12-31', 2, false, 2),
 ('2023-11-01', '2023-11-30', 2, true, 3),
@@ -82,7 +82,7 @@ INSERT INTO Availability (booking_start_date, booking_start_end, guest_count, is
 ('2023-11-01', '2023-11-30', 2, true, 9),
 ('2023-12-01', '2023-12-31', 2, false, 10);
 
-INSERT INTO RegistrationConfirmation (send_date, status, confirmation_code, expiration_date, User_id) VALUES
+INSERT INTO Registration_Confirmation (send_date, status, confirmation_code, expiration_date, User_id) VALUES
 ('2023-10-23', 'confirmed', 'ABCD1234', '2023-11-23', 1),
 ('2023-10-23', 'pending', 'EFGH5678', '2023-11-23', 2),
 ('2023-10-24', 'confirmed', 'IJKL9012', '2023-11-24', 3),
@@ -94,7 +94,7 @@ INSERT INTO RegistrationConfirmation (send_date, status, confirmation_code, expi
 ('2023-10-27', 'confirmed', 'GHIJ3456', '2023-11-27', 9),
 ('2023-10-27', 'confirmed', 'KLMN7890', '2023-11-27', 10);
 
-INSERT INTO FundBlock (block_amount, block_date, release_date, status, User_id, RegistrationConfirmation_id) VALUES
+INSERT INTO Fund_Block (block_amount, block_date, release_date, status, User_id, RegistrationConfirmation_id) VALUES
 (200.00, '2023-10-23', '2023-11-23', 'released', 1, 1),
 (150.00, '2023-10-23', null, 'active', 2, 2),
 (220.00, '2023-10-24', null, 'active', 3, 3),
