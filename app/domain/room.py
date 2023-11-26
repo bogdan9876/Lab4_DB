@@ -12,18 +12,21 @@ class Room(db.Model):
     bed_type = db.Column(db.String(50))
     Hotel_id = db.Column(db.Integer, db.ForeignKey('hotel.id'))
     availability = db.relationship("Availability", backref="room")
+    reservations = db.relationship('Reservation', backref='room')
 
     def __repr__(self) -> str:
         return f"Room({self.id}, '{self.room_type}', {self.price_per_night}, {self.room_size}, '{self.bed_type}', {self.Hotel_id})"
 
     def put_into_dto(self) -> Dict[str, Any]:
+        reservations = [reservation.put_into_dto() for reservation in self.reservations]
         return {
             'id': self.id,
             'room_type': self.room_type,
             'price_per_night': self.price_per_night,
             'room_size': self.room_size,
             'bed_type': self.bed_type,
-            'Hotel_id': self.Hotel_id
+            'Hotel_id': self.Hotel_id,
+            'reservations': reservations if reservations else None,
         }
 
     @staticmethod

@@ -17,13 +17,15 @@ class HotelChain(db.Model):
         return f"HotelChain({self.id}, '{self.name}', '{self.location}', {self.established_year}, '{self.owner_name}', {self.number_of_hotels})"
 
     def put_into_dto(self) -> Dict[str, Any]:
+        hotels = [hotel.put_into_dto() for hotel in self.hotels]
         return {
             'id': self.id,
             'name': self.name,
             'location': self.location,
             'established_year': self.established_year,
             'owner_name': self.owner_name,
-            'number_of_hotels': self.number_of_hotels
+            'number_of_hotels': self.number_of_hotels,
+            'hotels': hotels if hotels else None
         }
 
     @staticmethod
