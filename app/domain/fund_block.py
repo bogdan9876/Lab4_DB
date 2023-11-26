@@ -12,7 +12,7 @@ class FundBlock(db.Model):
     status = db.Column(db.Enum('active', 'released'))
     RegistrationConfirmation_id = db.Column(db.Integer, db.ForeignKey('registration_confirmation.id'))
     User_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    registration_confirmation = db.relationship("RegistrationConfirmation", lazy="select", uselist=False)
+    registration_confirmation = db.relationship("RegistrationConfirmation")
 
     def __repr__(self) -> str:
         return f"FundBlock(id={self.id}, block_amount={self.block_amount}, block_date={self.block_date}, " \

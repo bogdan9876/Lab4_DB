@@ -11,7 +11,7 @@ class HotelChain(db.Model):
     established_year = db.Column(db.Integer)
     owner_name = db.Column(db.String(50))
     number_of_hotels = db.Column(db.Integer)
-    hotels = db.relationship('Hotel', backref='hotel_chain', lazy=True)
+    hotels = db.relationship('Hotel', backref='hotel_chain')
 
     def __repr__(self) -> str:
         return f"HotelChain({self.id}, '{self.name}', '{self.location}', {self.established_year}, '{self.owner_name}', {self.number_of_hotels})"

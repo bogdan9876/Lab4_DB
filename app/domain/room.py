@@ -11,7 +11,7 @@ class Room(db.Model):
     room_size = db.Column(db.Float)
     bed_type = db.Column(db.String(50))
     Hotel_id = db.Column(db.Integer, db.ForeignKey('hotel.id'))
-    availability = db.relationship("Availability", backref="room", uselist=False)
+    availability = db.relationship("Availability", backref="room")
 
     def __repr__(self) -> str:
         return f"Room({self.id}, '{self.room_type}', {self.price_per_night}, {self.room_size}, '{self.bed_type}', {self.Hotel_id})"

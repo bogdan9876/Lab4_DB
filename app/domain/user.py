@@ -12,7 +12,7 @@ class User(db.Model):
     role = db.Column(db.Enum('client', 'administrator'), nullable=False)
     date_of_birth = db.Column(db.Date)
     phone_number = db.Column(db.String(15))
-    reviews = db.relationship("Review", backref="user", lazy="dynamic")
+    reviews = db.relationship("Review", backref="user")
 
     def __repr__(self) -> str:
         return f"User(id={self.id}, name='{self.name}', email='{self.email}', role='{self.role}', " \
