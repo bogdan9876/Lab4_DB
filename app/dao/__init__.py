@@ -8,6 +8,7 @@ from .availability_dao import AvailabilityDAO
 from .registration_confirmation_dao import RegistrationConfirmationDAO
 from .fund_block_dao import FundBlockDAO
 from .reservation_dao import ReservationDAO
+from .wifi_dao import WifiDAO
 
 availability_dao = AvailabilityDAO()
 registration_confirmation_dao = RegistrationConfirmationDAO()
@@ -19,3 +20,4 @@ hotel_location_dao = HotelLocationDAO()
 user_dao = UserDAO()
 review_dao = ReviewDAO()
 room_dao = RoomDAO()
+wifi_dao = WifiDAO()

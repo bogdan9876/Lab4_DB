@@ -34,6 +34,14 @@ INSERT INTO Hotel_Location (country, city, street, postal_code, Hotel_id) VALUES
 ('Spain', 'Barcelona', 'Passeig de Gràcia', '08007', 9),
 ('Germany', 'Berlin', 'Potsdamer Platz', '10785', 10);
 
+INSERT INTO wifi (ssid, password, security_type, band, speed, signal_strength)
+VALUES
+('block1', 'password', 'WPA2', '2.4GHz', 50.0, 70.0),
+('block2', '1111111111', 'WEP', '5GHz', 100.0, 80.0),
+('block3', 'qwerty123', 'WPA3', '2.4GHz', 75.0, 90.0),
+('block4', 'zxcvbnmasd', 'WPA2', '5GHz', 60.0, 85.0),
+('block5', '88888888', 'WEP', '2.4GHz', 90.0, 95.0);
+
 INSERT INTO User (name, email, password, role, date_of_birth, phone_number) VALUES
 ('John Doe', 'john.doe@example.com', 'password', 'client', '1990-05-15', '+1234567890'),
 ('Jane Doe', 'jane.doe@example.com', 'password', 'client', '1992-09-20', '+1987654321'),
@@ -58,17 +66,17 @@ INSERT INTO Review (review_text, rating, visit_date, service_quality, User_id, H
 ('Friendly atmosphere.', 4.2, '2023-11-10', 'good', 9, 9),
 ('Top-notch service.', 4.7, '2023-11-20', 'excellent', 10, 10);
 
-INSERT INTO Room (room_type, price_per_night, room_size, bed_type, Hotel_id) VALUES
-('Deluxe Room', 200.00, 350.00, 'King', 1),
-('Standard Room', 150.00, 275.00, 'Queen', 2),
-('Suite', 250.00, 500.00, 'King', 3),
-('Superior Room', 180.00, 300.00, 'King', 4),
-('Penthouse Suite', 400.00, 750.00, 'King', 5),
-('Executive Room', 220.00, 400.00, 'King', 6),
-('Family Room', 170.00, 450.00, 'Queen', 7),
-('Ocean View Room', 280.00, 375.00, 'King', 8),
-('Studio', 210.00, 325.00, 'King', 9),
-('Double Room', 160.00, 300.00, 'Double', 10);
+INSERT INTO Room (room_type, price_per_night, room_size, bed_type, Hotel_id, Wifi_id) VALUES
+('Deluxe Room', 200.00, 350.00, 'King', 1, 1),
+('Standard Room', 150.00, 275.00, 'Queen', 2, 1),
+('Suite', 250.00, 500.00, 'King', 3, 2),
+('Superior Room', 180.00, 300.00, 'King', 4, 2),
+('Penthouse Suite', 400.00, 750.00, 'King', 5, 3),
+('Executive Room', 220.00, 400.00, 'King', 6, 3),
+('Family Room', 170.00, 450.00, 'Queen', 7, 4),
+('Ocean View Room', 280.00, 375.00, 'King', 8, 4),
+('Studio', 210.00, 325.00, 'King', 9, 5),
+('Double Room', 160.00, 300.00, 'Double', 10, 5);
 
 INSERT INTO Availability (booking_start_date, booking_end_date, guest_count, is_weekend, Room_id) VALUES
 ('2023-11-01', '2023-11-30', 2, true, 1),

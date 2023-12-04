@@ -23,13 +23,25 @@ DELIMITER ;
 DROP TRIGGER IF EXISTS minimal_cardinality;
 DELIMITER //
 CREATE TRIGGER minimal_cardinality
-BEFORE INSERT
+AFTER DELETE
 ON hotel FOR EACH ROW
 BEGIN
-  DECLARE counter INT;
-  SELECT COUNT(*) INTO counter FROM hotel;
-  IF counter <= 6 THEN
-    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Cannot insert less than 6 rows';
+  IF(SELECT COUNT(*) FROM hotel)<6
+  THEN SIGNAL SQLSTATE '45000'
+    SET MESSAGE_TEXT = 'Delete error minimal cardinality';
   END IF;
+END //
+DELIMITER ;
+
+DROP TRIGGER IF EXISTS block_deletion;
+DELIMITER //
+CREATE TRIGGER wifi_id_connect
+BEFORE INSERT
+ON Room FOR EACH ROW
+BEGIN
+    IF NEW.Wifi_id NOT IN (SELECT id FROM Wifi)
+    THEN SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Invalid Wifi_id';
+    END IF;
 END //
 DELIMITER ;

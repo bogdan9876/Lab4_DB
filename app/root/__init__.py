@@ -15,6 +15,7 @@ def register_routes(app: Flask) -> None:
     from .registration_confirmation_route import registration_confirmation_bp
     from .fund_block_route import fund_block_bp
     from .reservation_route import reservation_bp
+    from .wifi_route import wifi_bp
     app.register_blueprint(hotel_chain_bp)
     app.register_blueprint(hotel_bp)
     app.register_blueprint(hotel_location_bp)
@@ -25,3 +26,4 @@ def register_routes(app: Flask) -> None:
     app.register_blueprint(registration_confirmation_bp)
     app.register_blueprint(fund_block_bp)
     app.register_blueprint(reservation_bp)
+    app.register_blueprint(wifi_bp)

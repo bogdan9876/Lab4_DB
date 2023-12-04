@@ -8,3 +8,4 @@ from .availability import Availability
 from .registration_confirmation import RegistrationConfirmation
 from .fund_block import FundBlock
 from .reservation import Reservation
+from .wifi import Wifi

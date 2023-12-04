@@ -8,6 +8,7 @@ from .availability_controller import AvailabilityController
 from .registration_confirmation_controller import RegistrationConfirmationController
 from .fund_block_controller import FundBlockController
 from .reservation_controller import ReservationController
+from .wifi_controller import WifiController
 
 hotel_controller = HotelController()
 hotel_chain_controller = HotelChainController()
@@ -19,3 +20,4 @@ availability_controller = AvailabilityController()
 registration_confirmation_controller = RegistrationConfirmationController()
 fund_block_controller = FundBlockController()
 reservation_controller = ReservationController()
+wifi_controller = WifiController()
