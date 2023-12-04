@@ -12,13 +12,11 @@ class Wifi(db.Model):
     band = db.Column(db.String(50))
     speed = db.Column(db.Float)
     signal_strength = db.Column(db.Float)
-    # rooms = db.relationship('Room', backref='hotel')
 
     def __repr__(self) -> str:
         return f"Wifi({self.id}, '{self.ssid}', '{self.password}', '{self.security_type}', '{self.band}', {self.speed}, {self.signal_strength})"
 
     def put_into_dto(self) -> Dict[str, Any]:
-        rooms = [room.put_into_dto() for room in self.rooms]
         return {
             'id': self.id,
             'ssid': self.ssid,
@@ -26,8 +24,7 @@ class Wifi(db.Model):
             'security_type': self.security_type,
             'band': self.band,
             'speed': self.speed,
-            'signal_strength': self.signal_strength,
-            'rooms': rooms if rooms else None
+            'signal_strength': self.signal_strength
         }
 
     @staticmethod
