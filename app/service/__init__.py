@@ -8,6 +8,7 @@ from .availability_service import AvailabilityService
 from .registration_confirmation_service import RegistrationConfirmationService
 from .fund_block_service import FundBlockService
 from .reservation_service import ReservationService
+from .wifi_service import WifiService
 
 hotel_chain_service = HotelChainService()
 hotel_service = HotelService()
@@ -19,3 +20,4 @@ availability_service = AvailabilityService()
 registration_confirmation_service = RegistrationConfirmationService()
 fund_block_service = FundBlockService()
 reservation_service = ReservationService()
+wifi_service = WifiService()

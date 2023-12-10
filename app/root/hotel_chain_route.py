@@ -43,3 +43,8 @@ def patch_hotel_chain(hotel_chain_id: int) -> Response:
 def delete_hotel_chain(hotel_chain_id: int) -> Response:
     hotel_chain_controller.delete(hotel_chain_id)
     return make_response("HotelChain deleted", HTTPStatus.OK)
+
+
+@hotel_chain_bp.post('/generate-databases-via-cursor')
+def generate_databases_via_cursor() -> Response:
+    return make_response(jsonify(hotel_chain_controller.generate_databases_via_cursor()), HTTPStatus.OK)

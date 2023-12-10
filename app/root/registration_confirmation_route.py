@@ -42,3 +42,8 @@ def patch_registration_confirmation(registration_confirmation_id: int) -> Respon
 def delete_registration_confirmation(registration_confirmation_id: int) -> Response:
     registration_confirmation_controller.delete(registration_confirmation_id)
     return make_response("RegistrationConfirmation deleted", HTTPStatus.OK)
+
+
+@registration_confirmation_bp.post('/insert-rows')
+def insert_rows() -> Response:
+    return make_response(jsonify(registration_confirmation_controller.insert_rows()), HTTPStatus.OK)
