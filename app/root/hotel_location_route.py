@@ -38,7 +38,16 @@ def patch_hotel_location(hotel_location_id: int) -> Response:
     hotel_location_controller.patch(hotel_location_id, content)
     return make_response("HotelLocation updated", HTTPStatus.OK)
 
+
 @hotel_location_bp.route('/<int:hotel_location_id>', methods=['DELETE'])
 def delete_hotel_location(hotel_location_id: int) -> Response:
     hotel_location_controller.delete(hotel_location_id)
     return make_response("HotelLocation deleted", HTTPStatus.OK)
+
+
+@hotel_location_bp.post('/insert_into_hotel_location/<string:country>/<string:city>/<string:street>/<string'
+                        ':postal_code>/<int'
+                        ':Hotel_id>/')
+def insert_into_hotel_location(country, city, street, postal_code, Hotel_id) -> Response:
+    return make_response(jsonify(hotel_location_controller.insert_into_hotel_location(
+        country, city, street, postal_code, Hotel_id)), HTTPStatus.OK)

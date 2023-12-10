@@ -1,3 +1,5 @@
+USE booking;
+
 INSERT INTO Hotel_Chain (name, location, established_year, owner_name, number_of_hotels) VALUES
 ('Marriott', 'New York, USA', 1927, 'Marriott Family', 7000),
 ('Hilton', 'Los Angeles, USA', 1919, 'Conrad Hilton', 6100),
